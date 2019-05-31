@@ -75,7 +75,6 @@ post:
 void preorder(struct AVLnode *node, TYPE *min_cost, TYPE *path, int *path_len,
                TYPE *candidate_path, int *c_path_len, TYPE sumDiff, TYPE parent_value)
 {
-    int i;
 
     if(node != NULL) {
 
@@ -129,6 +128,7 @@ Printing the contents of an AVL tree in breadth-first fashion
 */
 void printBreadthFirstTree(struct AVLTree *tree){
     int QUEUE_CAPACITY = 100;
+    int i;
    struct AVLnode **queue;  /* print using a queue, where queue is implemented as a static array */
    struct AVLnode *current = tree->root;
    int start = 0; /* start index of queue indicating the first element to be processed */
@@ -147,8 +147,7 @@ void printBreadthFirstTree(struct AVLTree *tree){
 
     /* Add first item to queue back */
     AVLQueueAddBack(current, queue, &end, &size, QUEUE_CAPACITY);
-
-    int i = 0;
+    i = 0;
     while(size < QUEUE_CAPACITY) {
         /* Remove as current and print */
         current = AVLQueueRemoveFront(queue, &start, &size, QUEUE_CAPACITY);
