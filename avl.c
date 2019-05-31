@@ -78,6 +78,7 @@ struct AVLnode * rotateLeft(struct AVLnode * current)
 	struct AVLnode * newtop = current->right;
 
     /* FIX ME */
+    // TODO
 	newtop = current->right;
     current->right = newtop->left;
     newtop->left = current;
@@ -96,6 +97,7 @@ struct AVLnode * rotateRight(struct AVLnode * current)
 
 
     /* FIX ME */
+    // TODO
 	newtop = current->left;
     current->left = newtop->right;
     newtop->right = current;
@@ -113,6 +115,7 @@ struct AVLnode * _balance(struct AVLnode * current)
 	diff1 = bf(current);
 
     /* FIX ME */
+    // TODO
 	if(diff1 < -1) {
         /* Left too big */
         diff2 = bf(current->left);
@@ -140,6 +143,7 @@ struct AVLnode * _balance(struct AVLnode * current)
 struct AVLnode * AVLnodeAdd(struct	AVLnode * current, TYPE newValue)
 {
      /* FIX ME */
+     // TODO
 	 struct AVLnode *newNode;
 
 	 if(current == NULL) {
@@ -150,10 +154,10 @@ struct AVLnode * AVLnodeAdd(struct	AVLnode * current, TYPE newValue)
 	 	current = newNode;
 
 	 } else if(newValue < current->val) {
-	 	current = AVLnodeAdd(current->left, newValue);
+	 	current->left = AVLnodeAdd(current->left, newValue);
 
 	 } else if(newValue > current->val) {
-	 	current = AVLnodeAdd(current->right, newValue);
+	 	current->right = AVLnodeAdd(current->right, newValue);
 
 	 }
 
